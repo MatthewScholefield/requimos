@@ -1,0 +1,22 @@
+# Netbeans private project files
+nbproject/private/
+
+# Temporary build files
+build/
+dist/
+.dep.inc
+
+### OS Files ###
+
+# Image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac files
+.DS_Store
