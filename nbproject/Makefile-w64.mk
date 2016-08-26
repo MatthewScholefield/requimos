@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/539503be/ComputerPlayer.o \
 	${OBJECTDIR}/source/Enemy.o \
 	${OBJECTDIR}/source/Entity.o \
 	${OBJECTDIR}/source/EntityComponent.o \
@@ -61,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/C/lib/SFML/lib -L/C/lib/freeglut/lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s
+LDLIBSOPTIONS=-L/C/lib/SFML/lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -71,55 +72,60 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	g++ -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos ${OBJECTFILES} ${LDLIBSOPTIONS} -lopengl32 -lfreetype -ljpeg -lwinmm -lgdi32
 
+${OBJECTDIR}/_ext/539503be/ComputerPlayer.o: /C/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/539503be
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/539503be/ComputerPlayer.o /C/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp
+
 ${OBJECTDIR}/source/Enemy.o: source/Enemy.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Enemy.o source/Enemy.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Enemy.o source/Enemy.cpp
 
 ${OBJECTDIR}/source/Entity.o: source/Entity.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Entity.o source/Entity.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Entity.o source/Entity.cpp
 
 ${OBJECTDIR}/source/EntityComponent.o: source/EntityComponent.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/EntityComponent.o source/EntityComponent.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/EntityComponent.o source/EntityComponent.cpp
 
 ${OBJECTDIR}/source/Grid.o: source/Grid.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Grid.o source/Grid.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Grid.o source/Grid.cpp
 
 ${OBJECTDIR}/source/Hud.o: source/Hud.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Hud.o source/Hud.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Hud.o source/Hud.cpp
 
 ${OBJECTDIR}/source/Player.o: source/Player.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Player.o source/Player.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Player.o source/Player.cpp
 
 ${OBJECTDIR}/source/Position.o: source/Position.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Position.o source/Position.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Position.o source/Position.cpp
 
 ${OBJECTDIR}/source/Renderer.o: source/Renderer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Renderer.o source/Renderer.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Renderer.o source/Renderer.cpp
 
 ${OBJECTDIR}/source/World.o: source/World.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/World.o source/World.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/World.o source/World.cpp
 
 ${OBJECTDIR}/source/main.o: source/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -I/C/lib/freeglut/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/main.o source/main.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/main.o source/main.cpp
 
 # Subprojects
 .build-subprojects:

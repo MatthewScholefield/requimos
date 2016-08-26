@@ -14,15 +14,15 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=clang
-CCC=clang++
-CXX=clang++
+CC=arm-none-eabi-cpp
+CCC=arm-none-eabi-g++
+CXX=arm-none-eabi-g++
 FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=CLang-Linux
-CND_DLIB_EXT=so
+CND_PLATFORM=DevkitARM-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/539503be/ComputerPlayer.o \
 	${OBJECTDIR}/source/Enemy.o \
 	${OBJECTDIR}/source/Entity.o \
 	${OBJECTDIR}/source/EntityComponent.o \
@@ -61,15 +62,20 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-L/C/lib/SFML/lib -lsfml-system-s -lsfml-window-s -lsfml-graphics-s
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos ${OBJECTFILES} ${LDLIBSOPTIONS} -L/usr/local/lib -lsfml-graphics -lsfml-window -lsfml-system
+
+${OBJECTDIR}/_ext/539503be/ComputerPlayer.o: /C/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/539503be
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/539503be/ComputerPlayer.o /C/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp
 
 ${OBJECTDIR}/source/Enemy.o: source/Enemy.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
@@ -127,7 +133,7 @@ ${OBJECTDIR}/source/main.o: source/main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos.exe
 
 # Subprojects
 .clean-subprojects:
