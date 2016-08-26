@@ -19,7 +19,8 @@
 
 enum class Direction;
 
-class Position {
+class Position
+{
 public:
 	Position();
 	Position(int x, int y);
@@ -27,6 +28,7 @@ public:
 	static Position fromDir(Direction dir);
 	Position &operator+=(const Position &rhs);
 	bool operator==(const Position &rhs);
+	Position operator+(const Position &rhs);
 
 	int x, y;
 };

@@ -17,10 +17,11 @@
 
 #include "World.hpp"
 #include "Enemy.hpp"
+#include "ComputerPlayer.hpp"
 
 World::World() : score(0), hud(), entityComponent(), grid(entityComponent), player()
 {
-	entityComponent.addEntity(new Player());
+	entityComponent.addEntity(new ComputerPlayer());
 	player = entityComponent.getLast();
 }
 
@@ -45,7 +46,7 @@ void World::advance()
 void World::reset()
 {
 	entityComponent.entities.clear();
-	entityComponent.addEntity(new Player());
+	entityComponent.addEntity(new ComputerPlayer());
 	player = entityComponent.getLast();
 	score = 0;
 	hud.setScore(score);

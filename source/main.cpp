@@ -25,9 +25,11 @@
 #include "World.hpp"
 #include "Renderer.hpp"
 #include "Enemy.hpp"
+#include "ComputerPlayer.hpp"
 
 int main()
 {
+	ComputerPlayer::init();
 	Player::init();
 	Grid::init();
 	Enemy::init();

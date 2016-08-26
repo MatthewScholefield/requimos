@@ -59,11 +59,19 @@ Position &Position::operator+=(const Position &rhs)
 {
 	x += rhs.x;
 	y += rhs.y;
+	clipBounds();
 	return *this;
 }
 
 bool Position::operator==(const Position& rhs)
 {
 	return rhs.x == x && rhs.y == y;
+}
+
+Position Position::operator+(const Position &rhs)
+{
+    Position answer(x + rhs.x, y + rhs.y);
+    answer.clipBounds();
+    return answer;
 }
 
