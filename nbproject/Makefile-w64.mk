@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/539503be/ComputerPlayer.o \
+	${OBJECTDIR}/source/ComputerPlayer.o \
 	${OBJECTDIR}/source/Enemy.o \
 	${OBJECTDIR}/source/Entity.o \
 	${OBJECTDIR}/source/EntityComponent.o \
@@ -72,10 +72,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	g++ -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/requimos ${OBJECTFILES} ${LDLIBSOPTIONS} -lopengl32 -lfreetype -ljpeg -lwinmm -lgdi32
 
-${OBJECTDIR}/_ext/539503be/ComputerPlayer.o: /C/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/539503be
+${OBJECTDIR}/source/ComputerPlayer.o: source/ComputerPlayer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/539503be/ComputerPlayer.o /C/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/ComputerPlayer.o source/ComputerPlayer.cpp
 
 ${OBJECTDIR}/source/Enemy.o: source/Enemy.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source

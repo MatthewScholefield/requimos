@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>C:/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.hpp</itemPath>
+      <itemPath>source/ComputerPlayer.hpp</itemPath>
       <itemPath>source/Direction.hpp</itemPath>
       <itemPath>source/Enemy.hpp</itemPath>
       <itemPath>source/Entity.hpp</itemPath>
@@ -23,7 +23,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>C:/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp</itemPath>
+      <itemPath>source/ComputerPlayer.cpp</itemPath>
       <itemPath>source/Enemy.cpp</itemPath>
       <itemPath>source/Entity.cpp</itemPath>
       <itemPath>source/EntityComponent.cpp</itemPath>
@@ -71,15 +71,9 @@
           <commandLine>-L/usr/local/lib -lsfml-graphics -lsfml-window -lsfml-system</commandLine>
         </linkerTool>
       </compileType>
-      <item path="C:/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="source/ComputerPlayer.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="C:/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="source/ComputerPlayer.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Direction.hpp" ex="false" tool="3" flavor2="0">
       </item>
@@ -182,15 +176,9 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="C:/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="source/ComputerPlayer.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="C:/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="source/ComputerPlayer.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Direction.hpp" ex="false" tool="3" flavor2="0">
       </item>
@@ -263,15 +251,9 @@
           <commandLine>-lopengl32 -lfreetype -ljpeg -lwinmm -lgdi32</commandLine>
         </linkerTool>
       </compileType>
-      <item path="C:/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="source/ComputerPlayer.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="C:/Users/Matthew/Documents/GitHub/requimos/source/ComputerPlayer.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="source/ComputerPlayer.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Direction.hpp" ex="false" tool="3" flavor2="0">
       </item>
