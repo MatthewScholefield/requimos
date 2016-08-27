@@ -19,35 +19,31 @@
 #include "Enemy.hpp"
 #include "ComputerPlayer.hpp"
 
-World::World() : score(0), hud(), entityComponent(), grid(entityComponent), player()
+World::World() : score(0), hud(), gridRunner(), grid()
 {
-	entityComponent.addEntity(new ComputerPlayer());
-	player = entityComponent.getLast();
 }
 
 void World::update()
 {
-	if (!player->isAlive && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (!grid.getPlayer()->isAlive && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		reset();
-	entityComponent.update(grid);
-	grid.update();
+	gridRunner.update(grid);
 }
 
 void World::advance()
 {
 	int oldScore = score;
 	if (rand() % 10 == 1)
-		entityComponent.addEntity(new Enemy(player));
-	entityComponent.advance(grid, player->isAlive ? score : oldScore);
+		grid.spawnEnemy();
+	gridRunner.advance(grid, grid.getPlayer()->isAlive ? score : oldScore);
 	if (oldScore != score)
 		hud.setScore(score);
 }
 
 void World::reset()
 {
-	entityComponent.entities.clear();
-	entityComponent.addEntity(new ComputerPlayer());
-	player = entityComponent.getLast();
+	grid.reset();
+	grid.spawnPlayer();
 	score = 0;
 	hud.setScore(score);
 }
@@ -55,6 +51,5 @@ void World::reset()
 void World::render(Renderer &renderer)
 {
 	grid.render(renderer);
-	entityComponent.render(renderer);
 	hud.render(renderer);
 }

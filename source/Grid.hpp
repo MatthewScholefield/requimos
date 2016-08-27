@@ -20,29 +20,30 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <vector>
 #include "Entity.hpp"
-#include "EntityComponent.hpp"
+#include "GridRunner.hpp"
+#include "Enemy.hpp"
+#include "EntityType.hpp"
 
+class Position;
 class Renderer;
 
 class Grid {
+	friend class GridRunner;
 public:
 	static const int sx = 160, sy = 90;
 
 	static void init();
-	Grid(const EntityComponent &entityComponent);
-	void update();
+	Grid();
+	void reset();
 	void render(Renderer &renderer);
-	bool isFree(int x, int y);
-	bool isFree(const Position &pos);
-	void moveEntity(const Position &begin, const Position &end);
-
-	enum class State {
-		EMPTY = 0, ENTITY
-	};
+	void spawnPlayer();
+	void spawnEnemy();
+	Entity::Ptr &getPlayer();
+	Entity::Ptr findNearest(EntityType type, const Position &pos);
 
 private:
-	const std::vector<Entity::Ptr> &entities;
-	State grid[sx][sy];
+	std::vector<Entity::Ptr> entities;
+	Entity::Ptr player;
 
 	static sf::Texture texture;
 	static sf::Sprite sprite;

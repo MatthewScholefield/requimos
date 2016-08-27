@@ -15,36 +15,4 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
-
-#include <SFML/Graphics/Color.hpp>
-#include <memory>
-
-#include "Position.hpp"
 #include "EntityType.hpp"
-
-namespace sf {
-	class Sprite;
-}
-
-class Grid;
-class Renderer;
-
-class Entity {
-public:
-	using Ptr = std::shared_ptr<Entity>;
-	const EntityType type;
-	const sf::Color color;
-	Position pos;
-	bool isAlive;
-	const int id;
-	
-	Entity(EntityType type, const sf::Color color);
-	
-	virtual ~Entity();
-	virtual void update(Grid &grid) = 0;
-	virtual void advance(Grid &grid) = 0;
-	
-private:
-	static int curId;
-};

@@ -17,23 +17,15 @@
 
 #pragma once
 
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Sprite.hpp>
 #include "Entity.hpp"
 
 class Enemy : public Entity
 {
 public:
-    static void init();
-
     Enemy(const Entity::Ptr &player);
     void update(Grid& grid) override;
     void advance(Grid& grid) override;
-    sf::Sprite& getSprite() override;
 
 private:
     Entity::Ptr player;
-
-    static sf::Texture texture;
-    static sf::Sprite sprite;
 };

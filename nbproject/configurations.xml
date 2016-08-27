@@ -8,10 +8,11 @@
       <itemPath>source/Direction.hpp</itemPath>
       <itemPath>source/Enemy.hpp</itemPath>
       <itemPath>source/Entity.hpp</itemPath>
-      <itemPath>source/EntityComponent.hpp</itemPath>
+      <itemPath>source/EntityType.hpp</itemPath>
       <itemPath>source/Grid.hpp</itemPath>
+      <itemPath>source/GridRunner.hpp</itemPath>
       <itemPath>source/Hud.hpp</itemPath>
-      <itemPath>source/Player.hpp</itemPath>
+      <itemPath>source/HumanPlayer.hpp</itemPath>
       <itemPath>source/Position.hpp</itemPath>
       <itemPath>source/Renderer.hpp</itemPath>
       <itemPath>source/World.hpp</itemPath>
@@ -26,10 +27,11 @@
       <itemPath>source/ComputerPlayer.cpp</itemPath>
       <itemPath>source/Enemy.cpp</itemPath>
       <itemPath>source/Entity.cpp</itemPath>
-      <itemPath>source/EntityComponent.cpp</itemPath>
+      <itemPath>source/EntityType.cpp</itemPath>
       <itemPath>source/Grid.cpp</itemPath>
+      <itemPath>source/GridRunner.cpp</itemPath>
       <itemPath>source/Hud.cpp</itemPath>
-      <itemPath>source/Player.cpp</itemPath>
+      <itemPath>source/HumanPlayer.cpp</itemPath>
       <itemPath>source/Position.cpp</itemPath>
       <itemPath>source/Renderer.cpp</itemPath>
       <itemPath>source/World.cpp</itemPath>
@@ -85,21 +87,25 @@
       </item>
       <item path="source/Entity.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="source/EntityComponent.cpp" ex="false" tool="1" flavor2="0">
+      <item path="source/EntityType.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="source/EntityComponent.hpp" ex="false" tool="3" flavor2="0">
+      <item path="source/EntityType.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Grid.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="source/Grid.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="source/GridRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="source/GridRunner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="source/Hud.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="source/Hud.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="source/Player.cpp" ex="false" tool="1" flavor2="0">
+      <item path="source/HumanPlayer.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="source/Player.hpp" ex="false" tool="3" flavor2="0">
+      <item path="source/HumanPlayer.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Position.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -190,21 +196,25 @@
       </item>
       <item path="source/Entity.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="source/EntityComponent.cpp" ex="false" tool="1" flavor2="0">
+      <item path="source/EntityType.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="source/EntityComponent.hpp" ex="false" tool="3" flavor2="0">
+      <item path="source/EntityType.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Grid.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="source/Grid.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="source/GridRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="source/GridRunner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="source/Hud.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="source/Hud.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="source/Player.cpp" ex="false" tool="1" flavor2="0">
+      <item path="source/HumanPlayer.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="source/Player.hpp" ex="false" tool="3" flavor2="0">
+      <item path="source/HumanPlayer.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Position.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -265,21 +275,25 @@
       </item>
       <item path="source/Entity.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="source/EntityComponent.cpp" ex="false" tool="1" flavor2="0">
+      <item path="source/EntityType.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="source/EntityComponent.hpp" ex="false" tool="3" flavor2="0">
+      <item path="source/EntityType.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Grid.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="source/Grid.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="source/GridRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="source/GridRunner.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="source/Hud.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="source/Hud.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="source/Player.cpp" ex="false" tool="1" flavor2="0">
+      <item path="source/HumanPlayer.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="source/Player.hpp" ex="false" tool="3" flavor2="0">
+      <item path="source/HumanPlayer.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="source/Position.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -15,22 +15,42 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#include <SFML/Graphics/Sprite.hpp>
 
-#include <vector>
+#include "GridRunner.hpp"
+#include "Renderer.hpp"
 #include "Entity.hpp"
+#include "Position.hpp"
+#include "Grid.hpp"
 
-class Grid;
-class Renderer;
+GridRunner::GridRunner()
+{
+}
 
-class EntityComponent {
-public:
-	std::vector<Entity::Ptr> entities;
+void GridRunner::update(Grid &grid)
+{
+	for (Entity::Ptr &i : grid.entities)
+		i->update(grid);
+}
 
-	EntityComponent();
-	void update(Grid &grid);
-	void advance(Grid &grid, int &score);
-	void render(Renderer &renderer);
-	void addEntity(Entity *entity);
-	Entity::Ptr getLast();
-};
+void GridRunner::advance(Grid& grid, int &score)
+{
+	for (Entity::Ptr &i : grid.entities)
+	{
+		Position before = i->pos;
+		i->advance(grid);
+		if (i->pos != before)
+			for (Entity::Ptr &j : grid.entities)
+				if (i->pos == j->pos && i->id != j->id)
+					i->isAlive = j->isAlive = false;
+	}
+
+	for (auto it = grid.entities.begin(); it != grid.entities.end();)
+		if (!(*it)->isAlive)
+		{
+			++score;
+			it = grid.entities.erase(it);
+		}
+		else
+			++it;
+}

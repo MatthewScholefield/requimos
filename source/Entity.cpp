@@ -18,7 +18,11 @@
 #include "Entity.hpp"
 #include "Grid.hpp"
 
-Entity::Entity() : pos(rand() % Grid::sx, rand() % Grid::sy), isAlive(true)
+int Entity::curId = 0;
+
+Entity::Entity(EntityType type, const sf::Color color) :
+type(type), color(color), pos(rand() % Grid::sx, rand() % Grid::sy),
+isAlive(true), id(curId++)
 {
 }
 

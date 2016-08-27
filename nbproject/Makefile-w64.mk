@@ -38,10 +38,11 @@ OBJECTFILES= \
 	${OBJECTDIR}/source/ComputerPlayer.o \
 	${OBJECTDIR}/source/Enemy.o \
 	${OBJECTDIR}/source/Entity.o \
-	${OBJECTDIR}/source/EntityComponent.o \
+	${OBJECTDIR}/source/EntityType.o \
 	${OBJECTDIR}/source/Grid.o \
+	${OBJECTDIR}/source/GridRunner.o \
 	${OBJECTDIR}/source/Hud.o \
-	${OBJECTDIR}/source/Player.o \
+	${OBJECTDIR}/source/HumanPlayer.o \
 	${OBJECTDIR}/source/Position.o \
 	${OBJECTDIR}/source/Renderer.o \
 	${OBJECTDIR}/source/World.o \
@@ -87,25 +88,30 @@ ${OBJECTDIR}/source/Entity.o: source/Entity.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Entity.o source/Entity.cpp
 
-${OBJECTDIR}/source/EntityComponent.o: source/EntityComponent.cpp 
+${OBJECTDIR}/source/EntityType.o: source/EntityType.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/EntityComponent.o source/EntityComponent.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/EntityType.o source/EntityType.cpp
 
 ${OBJECTDIR}/source/Grid.o: source/Grid.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Grid.o source/Grid.cpp
 
+${OBJECTDIR}/source/GridRunner.o: source/GridRunner.cpp 
+	${MKDIR} -p ${OBJECTDIR}/source
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/GridRunner.o source/GridRunner.cpp
+
 ${OBJECTDIR}/source/Hud.o: source/Hud.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Hud.o source/Hud.cpp
 
-${OBJECTDIR}/source/Player.o: source/Player.cpp 
+${OBJECTDIR}/source/HumanPlayer.o: source/HumanPlayer.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/Player.o source/Player.cpp
+	$(COMPILE.cc) -g -DSFML_STATIC -I/C/lib/SFML/include -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/source/HumanPlayer.o source/HumanPlayer.cpp
 
 ${OBJECTDIR}/source/Position.o: source/Position.cpp 
 	${MKDIR} -p ${OBJECTDIR}/source

@@ -21,7 +21,7 @@
 #include <SFML/System.hpp>
 #include <unistd.h>
 
-#include "Player.hpp"
+#include "HumanPlayer.hpp"
 #include "World.hpp"
 #include "Renderer.hpp"
 #include "Enemy.hpp"
@@ -29,10 +29,7 @@
 
 int main()
 {
-	ComputerPlayer::init();
-	Player::init();
 	Grid::init();
-	Enemy::init();
 
 	World world;
 

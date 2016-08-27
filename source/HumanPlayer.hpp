@@ -17,34 +17,23 @@
 
 #pragma once
 
-#include <SFML/Graphics/Color.hpp>
-#include <memory>
+#include <SFML/Window/Keyboard.hpp>
+#include <utility>
 
+#include "Direction.hpp"
 #include "Position.hpp"
-#include "EntityType.hpp"
-
-namespace sf {
-	class Sprite;
-}
+#include "Entity.hpp"
 
 class Grid;
-class Renderer;
 
-class Entity {
+class HumanPlayer : public Entity {
 public:
-	using Ptr = std::shared_ptr<Entity>;
-	const EntityType type;
-	const sf::Color color;
-	Position pos;
-	bool isAlive;
-	const int id;
-	
-	Entity(EntityType type, const sf::Color color);
-	
-	virtual ~Entity();
-	virtual void update(Grid &grid) = 0;
-	virtual void advance(Grid &grid) = 0;
-	
+	HumanPlayer();
+	void update(Grid &grid) override;
+	void advance(Grid &grid) override;
+
 private:
-	static int curId;
+	Direction dir;
+
+	static const std::pair<sf::Keyboard::Key, Direction> arrows[];
 };

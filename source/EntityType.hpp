@@ -17,30 +17,7 @@
 
 #pragma once
 
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <utility>
-
-#include "Direction.hpp"
-#include "Position.hpp"
-#include "Entity.hpp"
-
-class Grid;
-
-class Player : public Entity {
-public:
-	static void init();
-
-	Player();
-	void update(Grid &grid) override;
-	void advance(Grid &grid) override;
-	sf::Sprite &getSprite() override;
-
-private:
-	Direction dir;
-
-	static const std::pair<sf::Keyboard::Key, Direction> arrows[];
-	static sf::Texture texture;
-	static sf::Sprite sprite;
+enum class EntityType
+{
+	PLAYER_HUMAN, PLAYER_COMPUTER, ENEMY
 };

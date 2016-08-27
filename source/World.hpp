@@ -17,8 +17,8 @@
 
 #pragma once
 
-#include "EntityComponent.hpp"
-#include "Player.hpp"
+#include "GridRunner.hpp"
+#include "HumanPlayer.hpp"
 #include "Grid.hpp"
 #include "Hud.hpp"
 
@@ -35,7 +35,6 @@ public:
 private:
 	int score;
 	Hud hud;
-	EntityComponent entityComponent;
+	GridRunner gridRunner;
 	Grid grid;
-	Entity::Ptr player;
 };

@@ -16,10 +16,12 @@
  */
 
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 
 #include "Grid.hpp"
 #include "Position.hpp"
 #include "Renderer.hpp"
+#include "ComputerPlayer.hpp"
 
 sf::Texture Grid::texture;
 sf::Sprite Grid::sprite;
@@ -31,18 +33,14 @@ void Grid::init()
 	sprite.setTexture(texture);
 }
 
-Grid::Grid(const EntityComponent &component) : entities(component.entities), grid{}
+Grid::Grid() : entities()
 {
+	spawnPlayer();
 }
 
-void Grid::update()
+void Grid::reset()
 {
-	for (auto &column : grid)
-		for (State &slot : column)
-			slot = State::EMPTY;
-
-	for (const Entity::Ptr &i : entities)
-		grid[i->pos.x][i->pos.y] = State::ENTITY;
+	entities.clear();
 }
 
 void Grid::render(Renderer& renderer)
@@ -61,25 +59,46 @@ void Grid::render(Renderer& renderer)
 			sprite.setPosition(i * box.x, j * box.y);
 			renderer.draw(sprite);
 		}
-}
+	
+	sf::RectangleShape rect;
 
-bool Grid::isFree(int x, int y)
-{
-	return grid[x][y] == State::EMPTY;
-}
-
-bool Grid::isFree(const Position &pos)
-{
-	return grid[pos.x][pos.y] == State::EMPTY;
-}
-
-void Grid::moveEntity(const Position &begin, const Position &end)
-{
-	if (grid[end.x][end.y] != State::EMPTY)
-		grid[begin.x][begin.y] = grid[end.x][end.y] = State::EMPTY;
-	else
+	for (Entity::Ptr &i : entities)
 	{
-		grid[end.x][end.y] = grid[begin.x][begin.y];
-		grid[begin.x][begin.y] = State::EMPTY;
+		rect.setFillColor(i->color);
+		rect.setSize(sf::Vector2f(box.x, box.y));
+		rect.setPosition(i->pos.x * box.x, i->pos.y * box.y);
+		renderer.draw(rect);
 	}
+}
+
+void Grid::spawnPlayer()
+{
+	entities.emplace_back(new ComputerPlayer());
+	player = entities.back();
+}
+
+void Grid::spawnEnemy()
+{
+	entities.emplace_back(new Enemy(player));
+}
+
+Entity::Ptr &Grid::getPlayer()
+{
+	return player;
+}
+
+Entity::Ptr Grid::findNearest(EntityType type, const Position &pos)
+{
+	int minDist = std::numeric_limits<int>::max();
+	Entity::Ptr nearest;
+	for (Entity::Ptr &i : entities)
+	{
+		int dist = i->pos.dist(pos);
+		if (dist < minDist && i->type == type)
+		{
+			minDist = dist;
+			nearest = i;
+		}
+	}
+	return nearest;
 }

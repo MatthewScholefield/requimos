@@ -40,6 +40,11 @@ void Position::clipBounds()
 		y += Grid::sy;
 }
 
+int Position::dist(const Position& other)
+{
+	return abs(other.x - x) + abs(other.y - y);
+}
+
 Position Position::fromDir(Direction dir)
 {
 	switch (dir)
@@ -66,6 +71,11 @@ Position &Position::operator+=(const Position &rhs)
 bool Position::operator==(const Position& rhs)
 {
 	return rhs.x == x && rhs.y == y;
+}
+
+bool Position::operator!=(const Position& rhs)
+{
+	return rhs.x != x || rhs.y != y;
 }
 
 Position Position::operator+(const Position &rhs)

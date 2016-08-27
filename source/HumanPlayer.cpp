@@ -15,57 +15,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Texture.hpp>
 #include <stdexcept>
 
-#include "Player.hpp"
+#include "HumanPlayer.hpp"
 #include "Renderer.hpp"
 #include "Grid.hpp"
 
-sf::Texture Player::texture;
-sf::Sprite Player::sprite;
-
-void Player::init()
-{
-	if (!texture.loadFromFile("player.png"))
-		throw std::runtime_error("Could find player.png");
-	sprite.setTexture(texture);
-}
-
-Player::Player() : Entity(), dir(Direction::RIGHT)
+HumanPlayer::HumanPlayer() : Entity(EntityType::PLAYER_HUMAN, sf::Color(0,100,150)), dir(Direction::RIGHT)
 {
 }
 
-const std::pair<sf::Keyboard::Key, Direction> Player::arrows[] = {
+const std::pair<sf::Keyboard::Key, Direction> HumanPlayer::arrows[] = {
 	{sf::Keyboard::W, Direction::UP},
 	{sf::Keyboard::A, Direction::LEFT},
 	{sf::Keyboard::S, Direction::DOWN},
 	{sf::Keyboard::D, Direction::RIGHT}
 };
 
-void Player::update(Grid &grid)
+void HumanPlayer::update(Grid &grid)
 {
 	for (auto &i : arrows)
 		if (sf::Keyboard::isKeyPressed(i.first))
 			dir = i.second;
 }
 
-void Player::advance(Grid& grid)
+void HumanPlayer::advance(Grid& grid)
 {
-	Position newPos(pos);
-
-	newPos += Position::fromDir(dir);
-	newPos.clipBounds();
-
-	if (grid.isFree(newPos))
-	{
-		grid.moveEntity(pos, newPos);
-		pos = newPos;
-	}
-}
-
-sf::Sprite &Player::getSprite()
-{
-	return sprite;
+	pos += Position::fromDir(dir);
 }

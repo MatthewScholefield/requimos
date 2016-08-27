@@ -17,8 +17,6 @@
 
 #pragma once
 
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Sprite.hpp>
 #include "Entity.hpp"
 
 class Grid;
@@ -26,15 +24,8 @@ class Grid;
 class ComputerPlayer : public Entity
 {
 public:
-	static void init();
-	
 	ComputerPlayer();
 	int findFree(const Position &unit, const int max);
-    void advance(Grid& grid) override;
-    void update(Grid& grid) override;
-    sf::Sprite& getSprite() override;
-
-private:
-    static sf::Texture texture;
-    static sf::Sprite sprite;
+	void advance(Grid& grid) override;
+	void update(Grid& grid) override;
 };

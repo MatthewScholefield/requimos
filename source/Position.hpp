@@ -25,9 +25,11 @@ public:
 	Position();
 	Position(int x, int y);
 	void clipBounds();
+	int dist(const Position &other);
 	static Position fromDir(Direction dir);
 	Position &operator+=(const Position &rhs);
 	bool operator==(const Position &rhs);
+	bool operator!=(const Position &rhs);
 	Position operator+(const Position &rhs);
 
 	int x, y;

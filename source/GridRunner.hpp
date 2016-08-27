@@ -17,34 +17,14 @@
 
 #pragma once
 
-#include <SFML/Graphics/Color.hpp>
-#include <memory>
-
-#include "Position.hpp"
-#include "EntityType.hpp"
-
-namespace sf {
-	class Sprite;
-}
+#include "Entity.hpp"
 
 class Grid;
 class Renderer;
 
-class Entity {
+class GridRunner {
 public:
-	using Ptr = std::shared_ptr<Entity>;
-	const EntityType type;
-	const sf::Color color;
-	Position pos;
-	bool isAlive;
-	const int id;
-	
-	Entity(EntityType type, const sf::Color color);
-	
-	virtual ~Entity();
-	virtual void update(Grid &grid) = 0;
-	virtual void advance(Grid &grid) = 0;
-	
-private:
-	static int curId;
+	GridRunner();
+	void update(Grid &grid);
+	void advance(Grid &grid, int &score);
 };

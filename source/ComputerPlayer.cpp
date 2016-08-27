@@ -15,24 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Texture.hpp>
-
 #include "ComputerPlayer.hpp"
 #include "Renderer.hpp"
 #include "Grid.hpp"
 
-sf::Texture ComputerPlayer::texture;
-sf::Sprite ComputerPlayer::sprite;
-
-void ComputerPlayer::init()
-{
-	if (!texture.loadFromFile("computer.png"))
-		throw std::runtime_error("Could find computer.png");
-	sprite.setTexture(texture);
-}
-
-ComputerPlayer::ComputerPlayer() : Entity()
+ComputerPlayer::ComputerPlayer() : Entity(EntityType::PLAYER_COMPUTER, sf::Color(150,150,0))
 {
 }
 
@@ -48,13 +35,8 @@ void ComputerPlayer::update(Grid& grid)
 
 void ComputerPlayer::advance(Grid& grid)
 {
-	if (grid.isFree(pos + Position(1, 0)))
+	if (rand()%2==1) //grid.isFree(pos + Position(1, 0)))
 		pos += Position(1, 0);
 	else
 		pos += Position(0, 1);
-}
-
-sf::Sprite& ComputerPlayer::getSprite()
-{
-	return sprite;
 }
